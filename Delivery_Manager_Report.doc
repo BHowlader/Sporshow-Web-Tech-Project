@@ -1,0 +1,882 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+    @page { size: A4; margin: 1in; }
+    body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.6; color: #000; }
+    .cover-page { text-align: center; page-break-after: always; padding-top: 150px; }
+    .cover-page h1 { font-size: 28pt; color: #1a1a2e; margin-bottom: 10px; }
+    .cover-page h2 { font-size: 18pt; color: #333; font-weight: normal; margin-bottom: 30px; }
+    .cover-page .subtitle { font-size: 14pt; color: #555; margin-bottom: 60px; }
+    .cover-page .info { font-size: 12pt; margin-top: 80px; line-height: 2; }
+    h1 { font-size: 20pt; color: #1a1a2e; border-bottom: 2px solid #1a1a2e; padding-bottom: 5px; margin-top: 30px; margin-bottom: 15px; }
+    h2 { font-size: 16pt; color: #333; margin-top: 25px; margin-bottom: 10px; }
+    h3 { font-size: 13pt; color: #444; margin-top: 20px; margin-bottom: 8px; }
+    p { text-align: justify; margin-bottom: 10px; }
+    table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 11pt; }
+    th, td { border: 1px solid #333; padding: 8px 10px; text-align: left; }
+    th { background-color: #1a1a2e; color: #fff; font-weight: bold; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    code { font-family: 'Courier New', Courier, monospace; font-size: 10pt; background-color: #f4f4f4; padding: 2px 4px; }
+    .code-block { font-family: 'Courier New', Courier, monospace; font-size: 10pt; background-color: #f4f4f4; border: 1px solid #ddd; padding: 12px; margin: 10px 0; white-space: pre; line-height: 1.4; }
+    ul, ol { margin-bottom: 10px; padding-left: 25px; }
+    li { margin-bottom: 5px; }
+    .page-break { page-break-before: always; }
+    .qa-box { background: #f9f9f9; border-left: 4px solid #1a1a2e; padding: 12px 15px; margin: 12px 0; }
+    .qa-box .q { font-weight: bold; color: #c62828; margin-bottom: 5px; }
+    .qa-box .a { color: #1a1a2e; }
+    .tip-box { background: #e8f5e9; border: 1px solid #4caf50; padding: 10px 15px; margin: 10px 0; border-radius: 4px; }
+    .warn-box { background: #fff3e0; border: 1px solid #ff9800; padding: 10px 15px; margin: 10px 0; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+    <h1>Sporshow E-Commerce Store</h1>
+    <h2>Multi-Vendor Online Marketplace</h2>
+    <div class="subtitle">Role 3 &mdash; Delivery Manager Module</div>
+    <p style="font-size: 14pt; text-align: center;">Hardcopy Report</p>
+    <div class="info">
+        <p><strong>Project Type:</strong> Web Technology Project</p>
+        <p><strong>Role:</strong> Delivery Manager</p>
+        <p><strong>Technology Stack:</strong> PHP, MySQL, HTML, CSS, JavaScript (AJAX)</p>
+        <p><strong>Architecture:</strong> MVC (Model-View-Controller)</p>
+    </div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<h1>Table of Contents</h1>
+<ol>
+    <li><strong>Project Overview</strong></li>
+    <li><strong>Role Description &mdash; Delivery Manager</strong></li>
+    <li><strong>Features Implemented</strong>
+        <ul>
+            <li>3.1 Login &amp; Authentication</li>
+            <li>3.2 Logistics Dashboard</li>
+            <li>3.3 Delivery Agent Management</li>
+            <li>3.4 Delivery Zone Management</li>
+            <li>3.5 Order Dispatch</li>
+            <li>3.6 Active Delivery Tracking</li>
+            <li>3.7 AJAX Status Update</li>
+            <li>3.8 Failed Delivery Handling</li>
+            <li>3.9 Delivery History</li>
+            <li>3.10 Daily &amp; Weekly Summary</li>
+            <li>3.11 Profile Management</li>
+        </ul>
+    </li>
+    <li><strong>Database Schema</strong></li>
+    <li><strong>Project Structure (MVC)</strong></li>
+    <li><strong>Technical Implementation Details</strong></li>
+    <li><strong>How to Run the Project (Setup Guide)</strong></li>
+    <li><strong>Login Credentials</strong></li>
+    <li style="color: #c62828;"><strong>Code Explanation in Plain English (How Every File Works)</strong></li>
+    <li style="color: #c62828;"><strong>Viva / Defense Q&amp;A Preparation (30+ Questions &amp; Answers)</strong></li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ==================== 1. PROJECT OVERVIEW ==================== -->
+<h1>1. Project Overview</h1>
+<p>
+    Sporshow is a multi-vendor e-commerce online marketplace where customers shop across multiple seller stores, sellers manage their own product catalogs and orders, a delivery manager coordinates the logistics network, and a platform admin oversees the entire marketplace. The system covers the full commerce cycle: product discovery, purchase, fulfilment, delivery, and post-purchase reviews.
+</p>
+<p>
+    The platform is built using <strong>PHP</strong> for all server-side logic and <strong>MySQL</strong> as the database engine. It follows the <strong>MVC (Model-View-Controller)</strong> architectural pattern ensuring a clean separation of concerns between business logic, data access, and presentation layers. All database interactions use <strong>mysqli with prepared statements</strong> to prevent SQL injection attacks.
+</p>
+
+<h2>Platform Roles</h2>
+<table>
+    <tr><th>Role</th><th>Responsibility</th></tr>
+    <tr><td>Customer</td><td>Browse, cart, checkout, track, review, wishlist</td></tr>
+    <tr><td>Seller/Vendor</td><td>Product management, order fulfilment, analytics</td></tr>
+    <tr><td><strong>Delivery Manager</strong></td><td><strong>Agent management, order dispatch, delivery tracking</strong></td></tr>
+    <tr><td>Platform Admin</td><td>Seller approval, categories, disputes, platform reports</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== 2. ROLE DESCRIPTION ==================== -->
+<h1>2. Role Description &mdash; Delivery Manager</h1>
+<p>
+    The Delivery Manager is responsible for the entire logistics network of the Sporshow marketplace. This role maintains a pool of delivery agents operating across Bangladesh (primarily Dhaka and surrounding divisions), assigns incoming orders to available agents based on delivery zone and agent availability, monitors all active deliveries in real time, and provides operational summaries of delivery performance.
+</p>
+<p>
+    The Delivery Manager has their own dedicated portal with a sidebar navigation system, a real-time logistics dashboard, and full CRUD (Create, Read, Update, Delete) capabilities for managing agents and delivery zones. The portal also includes an AJAX-powered delivery status update system that allows status changes without page reloads.
+</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== 3. FEATURES ==================== -->
+<h1>3. Features Implemented</h1>
+
+<h2>3.1 Login &amp; Authentication</h2>
+<p>
+    The Delivery Manager logs in through a dedicated login page using their registered email and password. The system authenticates the user by verifying the provided credentials against the <code>users</code> table using PHP's <code>password_verify()</code> function with bcrypt hashing. Upon successful login, a PHP session is created storing the user's ID, name, email, and role.
+</p>
+<p>
+    <strong>Role-based access control (RBAC)</strong> is enforced on every protected page. The <code>requireRole('delivery_manager')</code> middleware function checks that the logged-in user has the correct role. If an unauthorized user attempts to access any delivery manager page, they receive a 403 Access Denied response.
+</p>
+<p>
+    The login form includes both <strong>client-side JavaScript validation</strong> (checking for empty fields before submission) and <strong>server-side PHP validation</strong> (verifying credentials and role). Descriptive error messages are displayed for invalid credentials.
+</p>
+
+<h2>3.2 Logistics Dashboard</h2>
+<p>Upon logging in, the Delivery Manager is presented with a logistics dashboard that displays key operational metrics at a glance:</p>
+<ul>
+    <li><strong>Pending Dispatch Count:</strong> Number of orders with &lsquo;shipped&rsquo; status that have not yet been assigned to any delivery agent.</li>
+    <li><strong>Active Deliveries:</strong> Number of delivery assignments currently in progress (assigned, picked up, or in transit).</li>
+    <li><strong>Delivered Today:</strong> Number of deliveries successfully completed on the current date.</li>
+    <li><strong>Total Agents:</strong> Total number of delivery agents registered in the system, with a count of currently active agents.</li>
+</ul>
+<p>The dashboard also provides <strong>quick action links</strong> for navigating to dispatch orders, viewing active deliveries, managing agents, and managing zones.</p>
+
+<h2>3.3 Delivery Agent Management</h2>
+<p>The Delivery Manager can manage the pool of delivery agents with full CRUD operations:</p>
+<ul>
+    <li><strong>Add New Agent:</strong> Register a new delivery agent with their name, phone number, and vehicle type (Motorcycle, Van, Bicycle, or Car).</li>
+    <li><strong>Edit Agent:</strong> Modify an existing agent's details including name, phone, and vehicle type.</li>
+    <li><strong>Activate/Deactivate Agent:</strong> Toggle an agent's active status. Deactivated agents cannot be assigned to new deliveries.</li>
+    <li><strong>View All Agents:</strong> Display a comprehensive table showing all agents with their ID, name, phone, vehicle type, number of currently active deliveries, and status (active/inactive).</li>
+</ul>
+
+<h2>3.4 Delivery Zone Management</h2>
+<p>Delivery zones represent the geographic areas where orders can be delivered. Each zone has a name, delivery fee (in BDT), and estimated delivery time in days.</p>
+<table>
+    <tr><th>Zone</th><th>Delivery Fee (BDT)</th><th>Estimated Days</th></tr>
+    <tr><td>Dhaka City</td><td>60.00</td><td>1</td></tr>
+    <tr><td>Gazipur</td><td>100.00</td><td>1</td></tr>
+    <tr><td>Narayanganj</td><td>100.00</td><td>1</td></tr>
+    <tr><td>Chattogram</td><td>150.00</td><td>2</td></tr>
+    <tr><td>Sylhet</td><td>180.00</td><td>3</td></tr>
+</table>
+<p>The Delivery Manager can <strong>add</strong>, <strong>edit</strong>, and <strong>delete</strong> delivery zones.</p>
+
+<h2>3.5 Order Dispatch</h2>
+<p>The Dispatch Orders page shows all orders that are <strong>ready for dispatch</strong> &mdash; orders where the seller has confirmed and shipped their items (status = &lsquo;shipped&rsquo;) but no active delivery agent has been assigned yet. The Delivery Manager selects an agent and a zone, then clicks Assign.</p>
+
+<h2>3.6 Active Delivery Tracking</h2>
+<p>The Active Deliveries page displays all deliveries currently in progress with their order ID, customer name, zone, assigned agent, current status, and time of assignment.</p>
+
+<h2>3.7 AJAX Status Update (XMLHttpRequest Feature)</h2>
+<p>The delivery status update feature is implemented using <strong>AJAX (XMLHttpRequest)</strong>. This allows the Delivery Manager to update a delivery's status (Picked Up &rarr; In Transit &rarr; Delivered) <strong>without reloading the page</strong>. The JavaScript sends a request to a PHP API endpoint which returns a JSON response, and the page updates dynamically.</p>
+
+<h2>3.8 Failed Delivery Handling</h2>
+<p>When a delivery cannot be completed, the Delivery Manager can mark it as failed with a reason, or re-assign it to a different agent through a popup modal.</p>
+
+<h2>3.9 Delivery History</h2>
+<p>A complete record of all completed and failed deliveries with full timestamps and failure reasons.</p>
+
+<h2>3.10 Daily &amp; Weekly Delivery Summary</h2>
+<p>Aggregated statistics showing total delivered, total failed, and total in transit for today and this week.</p>
+
+<h2>3.11 Profile Management</h2>
+<p>Upload profile picture, update personal information, and change password with proper validation.</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== 4. DATABASE SCHEMA ==================== -->
+<h1>4. Database Schema</h1>
+<p>The project uses a shared MySQL database named <code>ecommerce_store</code>. Key tables for Delivery Manager:</p>
+
+<h3>users</h3>
+<table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td>id</td><td>INT (PK)</td><td>Unique user ID</td></tr>
+    <tr><td>name</td><td>VARCHAR(100)</td><td>Full name</td></tr>
+    <tr><td>email</td><td>VARCHAR(150), UNIQUE</td><td>Email address</td></tr>
+    <tr><td>password_hash</td><td>VARCHAR(255)</td><td>Bcrypt hashed password</td></tr>
+    <tr><td>phone</td><td>VARCHAR(20)</td><td>Phone number</td></tr>
+    <tr><td>role</td><td>ENUM</td><td>customer, seller, delivery_manager, admin</td></tr>
+    <tr><td>profile_pic</td><td>VARCHAR(255)</td><td>Path to profile picture</td></tr>
+    <tr><td>is_active</td><td>TINYINT(1)</td><td>Account active status</td></tr>
+    <tr><td>created_at</td><td>DATETIME</td><td>Account creation timestamp</td></tr>
+</table>
+
+<h3>delivery_agents</h3>
+<table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td>id</td><td>INT (PK)</td><td>Unique agent ID</td></tr>
+    <tr><td>name</td><td>VARCHAR(100)</td><td>Agent name</td></tr>
+    <tr><td>vehicle_type</td><td>VARCHAR(50)</td><td>Motorcycle, Van, Bicycle, Car</td></tr>
+    <tr><td>phone</td><td>VARCHAR(20)</td><td>Contact number</td></tr>
+    <tr><td>is_active</td><td>TINYINT(1)</td><td>Active status</td></tr>
+    <tr><td>created_at</td><td>DATETIME</td><td>Registration timestamp</td></tr>
+</table>
+
+<h3>delivery_assignments</h3>
+<table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td>id</td><td>INT (PK)</td><td>Unique assignment ID</td></tr>
+    <tr><td>order_id</td><td>INT (FK)</td><td>Assigned order</td></tr>
+    <tr><td>agent_id</td><td>INT (FK)</td><td>Assigned agent</td></tr>
+    <tr><td>assigned_at</td><td>DATETIME</td><td>Assignment timestamp</td></tr>
+    <tr><td>status</td><td>ENUM</td><td>assigned, picked_up, in_transit, delivered, failed</td></tr>
+    <tr><td>delivery_zone</td><td>INT (FK)</td><td>Delivery zone</td></tr>
+    <tr><td>fail_reason</td><td>VARCHAR(255)</td><td>Reason if failed</td></tr>
+    <tr><td>delivered_at</td><td>DATETIME</td><td>Completion timestamp</td></tr>
+</table>
+
+<h3>delivery_zones</h3>
+<table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td>id</td><td>INT (PK)</td><td>Unique zone ID</td></tr>
+    <tr><td>zone_name</td><td>VARCHAR(100)</td><td>Zone name (e.g., Dhaka City)</td></tr>
+    <tr><td>delivery_fee</td><td>DECIMAL(8,2)</td><td>Fee in BDT</td></tr>
+    <tr><td>estimated_days</td><td>INT</td><td>Estimated delivery days</td></tr>
+</table>
+
+<h3>orders</h3>
+<table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td>id</td><td>INT (PK)</td><td>Unique order ID</td></tr>
+    <tr><td>customer_id</td><td>INT (FK)</td><td>Customer who placed it</td></tr>
+    <tr><td>shipping_address</td><td>TEXT</td><td>Delivery address</td></tr>
+    <tr><td>total_amount</td><td>DECIMAL(10,2)</td><td>Order total in BDT</td></tr>
+    <tr><td>status</td><td>ENUM</td><td>pending, confirmed, processing, shipped, delivered, cancelled, etc.</td></tr>
+    <tr><td>created_at</td><td>DATETIME</td><td>Order timestamp</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== 5. PROJECT STRUCTURE ==================== -->
+<h1>5. Project Structure (MVC)</h1>
+<div class="code-block">
+Sporshow Web Tech Project/
+&#9500;&#9472;&#9472; index.php                        &larr; Front controller / Router
+&#9500;&#9472;&#9472; config/
+&#9474;   &#9500;&#9472;&#9472; database.php                 &larr; DB connection
+&#9474;   &#9492;&#9472;&#9472; auth.php                     &larr; Session &amp; access control
+&#9500;&#9472;&#9472; models/
+&#9474;   &#9500;&#9472;&#9472; User.php                     &larr; User model
+&#9474;   &#9500;&#9472;&#9472; DeliveryAgent.php            &larr; Agent model
+&#9474;   &#9500;&#9472;&#9472; DeliveryZone.php             &larr; Zone model
+&#9474;   &#9492;&#9472;&#9472; DeliveryAssignment.php       &larr; Assignment model
+&#9500;&#9472;&#9472; controllers/
+&#9474;   &#9500;&#9472;&#9472; AuthController.php           &larr; Login / Logout
+&#9474;   &#9500;&#9472;&#9472; DashboardController.php      &larr; Dashboard
+&#9474;   &#9500;&#9472;&#9472; AgentController.php          &larr; Agent management
+&#9474;   &#9500;&#9472;&#9472; ZoneController.php           &larr; Zone management
+&#9474;   &#9500;&#9472;&#9472; DispatchController.php       &larr; Order dispatch
+&#9474;   &#9500;&#9472;&#9472; DeliveryController.php       &larr; Active, history, summary
+&#9474;   &#9492;&#9472;&#9472; ProfileController.php        &larr; Profile management
+&#9500;&#9472;&#9472; views/delivery/
+&#9474;   &#9500;&#9472;&#9472; login.php, dashboard.php, agents.php, zones.php
+&#9474;   &#9500;&#9472;&#9472; dispatch.php, active.php, history.php, summary.php
+&#9474;   &#9492;&#9472;&#9472; profile.php
+&#9500;&#9472;&#9472; api/
+&#9474;   &#9492;&#9472;&#9472; update_delivery_status.php   &larr; AJAX JSON endpoint
+&#9500;&#9472;&#9472; assets/css/style.css &amp; js/app.js
+&#9492;&#9472;&#9472; sql/schema.sql &amp; seed.sql
+</div>
+
+<div class="page-break"></div>
+
+<!-- ==================== 6. TECHNICAL DETAILS ==================== -->
+<h1>6. Technical Implementation Details</h1>
+
+<h2>6.1 Authentication &amp; Session Management</h2>
+<p>Authentication is handled through PHP sessions. The <code>config/auth.php</code> file provides helper functions: <code>isLoggedIn()</code>, <code>requireLogin()</code>, and <code>requireRole($role)</code>. Every controller calls <code>requireRole('delivery_manager')</code> before executing. Passwords use bcrypt hashing via <code>password_hash()</code> and <code>password_verify()</code>.</p>
+
+<h2>6.2 Prepared Statements</h2>
+<p>All database queries use <strong>mysqli prepared statements</strong> with parameter binding to prevent SQL injection. No raw string concatenation is used in any SQL query.</p>
+
+<h2>6.3 AJAX Implementation</h2>
+<p>The AJAX feature uses <code>XMLHttpRequest</code> to send POST requests to <code>api/update_delivery_status.php</code>, which returns JSON. The page updates dynamically without reloading.</p>
+
+<h2>6.4 Validation</h2>
+<p><strong>Client-side:</strong> JavaScript validates forms before submission (empty checks, password matching, confirm dialogs).</p>
+<p><strong>Server-side:</strong> PHP validates all inputs again (empty checks, type casting, file extension checks, password length). User output is escaped with <code>htmlspecialchars()</code> to prevent XSS.</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== 7. SETUP GUIDE ==================== -->
+<h1>7. How to Run the Project (Setup Guide)</h1>
+
+<h2>Prerequisites</h2>
+<ul>
+    <li>XAMPP installed (includes Apache, MySQL, and PHP)</li>
+    <li>A web browser (Chrome, Firefox, Edge)</li>
+</ul>
+
+<h3>Step 1: Install XAMPP</h3>
+<p>Download from <strong>https://www.apachefriends.org/</strong> and install with default settings.</p>
+
+<h3>Step 2: Start Apache and MySQL</h3>
+<p>Open XAMPP Control Panel. Click <strong>"Start"</strong> next to both <strong>Apache</strong> and <strong>MySQL</strong>.</p>
+
+<h3>Step 3: Copy Project Files</h3>
+<p>Copy the entire project folder into the <code>htdocs</code> directory:</p>
+<ul>
+    <li><strong>Windows:</strong> <code>C:\xampp\htdocs\</code></li>
+    <li><strong>Mac:</strong> <code>/Applications/XAMPP/htdocs/</code></li>
+</ul>
+
+<h3>Step 4: Create the Database</h3>
+<ol>
+    <li>Open browser &rarr; go to <strong>http://localhost/phpmyadmin</strong></li>
+    <li>Click <strong>"SQL"</strong> tab</li>
+    <li>Copy contents of <code>sql/schema.sql</code> &rarr; paste &rarr; click <strong>"Go"</strong></li>
+</ol>
+
+<h3>Step 5: Import Seed Data</h3>
+<ol>
+    <li>In phpMyAdmin, click <strong>"SQL"</strong> tab again</li>
+    <li>Copy contents of <code>sql/seed.sql</code> &rarr; paste &rarr; click <strong>"Go"</strong></li>
+</ol>
+
+<h3>Step 6: Open the Application</h3>
+<p>Navigate to: <strong>http://localhost/Sporshow%20Web%20Tech%20Project/</strong></p>
+
+<h3>Troubleshooting</h3>
+<table>
+    <tr><th>Issue</th><th>Solution</th></tr>
+    <tr><td>Database connection error</td><td>Ensure MySQL is running. Check <code>config/database.php</code> credentials.</td></tr>
+    <tr><td>Page not found</td><td>Ensure project is in <code>htdocs/</code> and Apache is running.</td></tr>
+    <tr><td>Login fails</td><td>Re-run <code>seed.sql</code> in phpMyAdmin.</td></tr>
+    <tr><td>Profile picture upload fails</td><td>Ensure <code>uploads/profiles/</code> directory exists.</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== 8. CREDENTIALS ==================== -->
+<h1>8. Login Credentials</h1>
+<table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>URL</td><td>http://localhost/Sporshow Web Tech Project/</td></tr>
+    <tr><td>Email</td><td>dm@sporshow.com</td></tr>
+    <tr><td>Password</td><td>password123</td></tr>
+    <tr><td>Role</td><td>Delivery Manager</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ====================================================================== -->
+<!-- ==================== 9. CODE EXPLANATION (PLAIN ENGLISH) ============= -->
+<!-- ====================================================================== -->
+<h1>9. Code Explanation in Plain English</h1>
+
+<div class="tip-box">
+    <strong>How to read this section:</strong> Below, every file in the project is explained in simple, everyday language. No coding knowledge needed. Think of each file like a worker in an office &mdash; each one has a specific job.
+</div>
+
+<!-- ===== OVERALL CONCEPT ===== -->
+<h2>9.1 How the Whole Project Works (The Big Picture)</h2>
+<p>Imagine you are running a delivery company. You have:</p>
+<ul>
+    <li>A <strong>reception desk</strong> (the login page) &mdash; only authorized managers can enter.</li>
+    <li>A <strong>main office</strong> (the dashboard) &mdash; shows you today's numbers at a glance.</li>
+    <li>A <strong>staff register</strong> (agent management) &mdash; where you add/remove delivery boys.</li>
+    <li>A <strong>zone map</strong> (zone management) &mdash; where you define delivery areas and fees.</li>
+    <li>A <strong>dispatch board</strong> (dispatch page) &mdash; where you assign orders to delivery boys.</li>
+    <li>A <strong>tracking wall</strong> (active deliveries) &mdash; where you watch live delivery progress.</li>
+    <li>An <strong>archive room</strong> (history page) &mdash; past records of all deliveries.</li>
+</ul>
+<p>
+    When someone visits the website, the <strong>index.php</strong> file acts like a <strong>receptionist</strong>. It looks at what page you're asking for (login? dashboard? agents?) and sends you to the right <strong>controller</strong>. The controller does the thinking, asks the <strong>model</strong> to get data from the database, and then hands everything to the <strong>view</strong> to display it nicely on screen.
+</p>
+
+<!-- ===== MVC EXPLAINED ===== -->
+<h2>9.2 What is MVC? (The Most Important Concept)</h2>
+<p><strong>MVC stands for Model-View-Controller.</strong> Think of it like a restaurant:</p>
+<table>
+    <tr><th>MVC Part</th><th>Restaurant Analogy</th><th>What It Does</th></tr>
+    <tr>
+        <td><strong>Model</strong></td>
+        <td>The Kitchen</td>
+        <td>Talks to the database. Gets data, saves data, updates data. Does the real behind-the-scenes work. The customer never sees the kitchen.</td>
+    </tr>
+    <tr>
+        <td><strong>View</strong></td>
+        <td>The Plate / Menu</td>
+        <td>What the user actually sees on screen &mdash; the HTML pages, tables, buttons, forms. It just displays information. It doesn't cook anything.</td>
+    </tr>
+    <tr>
+        <td><strong>Controller</strong></td>
+        <td>The Waiter</td>
+        <td>Takes the user's request, goes to the kitchen (model) to get data, brings it back, and serves it on a plate (view). The middleman.</td>
+    </tr>
+</table>
+<p><strong>Why use MVC?</strong> It keeps the code organized. If you want to change how a page looks, you only touch the View. If you want to change a database query, you only touch the Model. Nothing is mixed up.</p>
+
+<!-- ===== EACH FILE EXPLAINED ===== -->
+<h2>9.3 Every File Explained (One by One)</h2>
+
+<h3>index.php &mdash; The Receptionist / Traffic Controller</h3>
+<p>
+    This is the <strong>first file that runs</strong> when someone opens the website. It looks at the URL to figure out what page the user wants. For example:
+</p>
+<ul>
+    <li>If the URL says <code>?page=login</code> &rarr; it calls the <strong>AuthController</strong> to show the login page.</li>
+    <li>If the URL says <code>?page=dashboard</code> &rarr; it calls the <strong>DashboardController</strong> to show the dashboard.</li>
+    <li>If the URL says <code>?page=agents</code> &rarr; it calls the <strong>AgentController</strong> to show agent management.</li>
+</ul>
+<p>It uses a <code>switch</code> statement &mdash; like a phone menu: &ldquo;Press 1 for dashboard, press 2 for agents&rdquo; etc.</p>
+
+<h3>config/database.php &mdash; The Database Connection</h3>
+<p>
+    This file stores the database address, username, and password. It has one function called <code>getDBConnection()</code> that connects to the MySQL database. Every model uses this function when it needs to talk to the database. Think of it as the <strong>phone number to reach the database</strong>.
+</p>
+
+<h3>config/auth.php &mdash; The Security Guard</h3>
+<p>This file handles login security. It has three main functions:</p>
+<ul>
+    <li><code>isLoggedIn()</code> &mdash; Checks: &ldquo;Is this person logged in?&rdquo;</li>
+    <li><code>requireLogin()</code> &mdash; If not logged in, kicks them to the login page.</li>
+    <li><code>requireRole('delivery_manager')</code> &mdash; Checks: &ldquo;Is this person a delivery manager?&rdquo; If not, blocks access with a &ldquo;403 Access Denied&rdquo; message.</li>
+</ul>
+<p>This is called at the top of <strong>every single page</strong>, so no one can sneak into the delivery manager portal without proper login.</p>
+
+<hr>
+<h3 style="color: #1a1a2e;">MODELS (The Kitchen &mdash; Database Workers)</h3>
+
+<h3>models/User.php</h3>
+<p>Handles everything about users. It can:</p>
+<ul>
+    <li><strong>Login:</strong> Takes email &amp; password, checks if they match in the database, returns the user info if correct.</li>
+    <li><strong>Get profile:</strong> Fetches a user's name, email, phone from the database.</li>
+    <li><strong>Update profile:</strong> Changes name or phone in the database.</li>
+    <li><strong>Change password:</strong> Saves a new encrypted password.</li>
+    <li><strong>Upload picture:</strong> Saves the picture file path in the database.</li>
+</ul>
+
+<h3>models/DeliveryAgent.php</h3>
+<p>Handles everything about delivery agents (delivery boys). It can:</p>
+<ul>
+    <li><strong>getAll():</strong> Get a list of ALL agents with how many active deliveries each one has.</li>
+    <li><strong>getActive():</strong> Get only the agents who are currently active (available for work).</li>
+    <li><strong>getById():</strong> Get one specific agent's details.</li>
+    <li><strong>create():</strong> Add a new agent to the database.</li>
+    <li><strong>update():</strong> Change an agent's name, phone, or vehicle type.</li>
+    <li><strong>toggleActive():</strong> Turn an agent on/off (active/inactive).</li>
+</ul>
+
+<h3>models/DeliveryZone.php</h3>
+<p>Handles delivery zones (geographic areas). It can:</p>
+<ul>
+    <li><strong>getAll():</strong> List all zones (Dhaka City, Gazipur, etc.).</li>
+    <li><strong>create():</strong> Add a new zone with name, fee, and estimated days.</li>
+    <li><strong>update():</strong> Change a zone's details.</li>
+    <li><strong>delete():</strong> Remove a zone from the system.</li>
+</ul>
+
+<h3>models/DeliveryAssignment.php &mdash; The Most Important Model</h3>
+<p>This is the heart of the system. It handles:</p>
+<ul>
+    <li><strong>getOrdersReadyForDispatch():</strong> Finds all orders that sellers have shipped but no delivery boy has been assigned to yet.</li>
+    <li><strong>assignAgent():</strong> Assigns a delivery boy to an order.</li>
+    <li><strong>getActiveDeliveries():</strong> Gets all deliveries that are currently happening (assigned, picked up, in transit).</li>
+    <li><strong>getDeliveryHistory():</strong> Gets all past deliveries (completed or failed).</li>
+    <li><strong>updateStatus():</strong> Changes a delivery's status (e.g., from &ldquo;assigned&rdquo; to &ldquo;picked up&rdquo;). If the status becomes &ldquo;delivered&rdquo;, it also marks the order as delivered and records the time.</li>
+    <li><strong>markFailed():</strong> Marks a delivery as failed and saves the reason.</li>
+    <li><strong>Dashboard stats:</strong> Counts pending orders, active deliveries, and today's completions for the dashboard.</li>
+    <li><strong>getSummaryStats():</strong> Calculates daily and weekly totals for the summary page.</li>
+</ul>
+
+<hr>
+<h3 style="color: #1a1a2e;">CONTROLLERS (The Waiters &mdash; Request Handlers)</h3>
+
+<h3>controllers/AuthController.php</h3>
+<p>Handles login and logout:</p>
+<ul>
+    <li><strong>login():</strong> When someone submits the login form, this checks if the email/password are correct. If yes, it creates a session (remembers who you are) and sends you to the dashboard. If wrong, it shows an error message. It also blocks non-delivery-manager users.</li>
+    <li><strong>logout():</strong> Destroys the session (forgets who you are) and sends you back to the login page.</li>
+</ul>
+
+<h3>controllers/DashboardController.php</h3>
+<p>When the dashboard page loads, this controller:</p>
+<ol>
+    <li>First checks: &ldquo;Are you a delivery manager?&rdquo; (security check)</li>
+    <li>Asks the DeliveryAssignment model: &ldquo;How many orders are pending? How many deliveries are active? How many delivered today?&rdquo;</li>
+    <li>Asks the DeliveryAgent model: &ldquo;How many agents do we have?&rdquo;</li>
+    <li>Passes all these numbers to the dashboard view to display them.</li>
+</ol>
+
+<h3>controllers/AgentController.php</h3>
+<p>Handles all agent management. When the page loads, it checks if the user submitted a form:</p>
+<ul>
+    <li>If the form says &ldquo;create&rdquo; &rarr; adds a new agent to the database.</li>
+    <li>If the form says &ldquo;update&rdquo; &rarr; updates an existing agent.</li>
+    <li>If the form says &ldquo;toggle&rdquo; &rarr; activates or deactivates an agent.</li>
+</ul>
+<p>After handling the form, it fetches all agents and passes them to the view to display.</p>
+
+<h3>controllers/ZoneController.php</h3>
+<p>Same pattern as AgentController but for zones. Handles create, update, and delete actions for delivery zones.</p>
+
+<h3>controllers/DispatchController.php</h3>
+<p>Shows orders waiting for dispatch. When the manager assigns an agent to an order (submits the form), this controller saves the assignment in the database.</p>
+
+<h3>controllers/DeliveryController.php</h3>
+<p>Handles three pages:</p>
+<ul>
+    <li><strong>active():</strong> Shows in-progress deliveries. Handles &ldquo;mark as failed&rdquo; and &ldquo;reassign&rdquo; form submissions.</li>
+    <li><strong>history():</strong> Shows completed/failed deliveries.</li>
+    <li><strong>summary():</strong> Shows daily and weekly statistics.</li>
+</ul>
+
+<h3>controllers/ProfileController.php</h3>
+<p>Handles three types of profile updates: change name/phone, change password (verifies old password first), and upload profile picture (checks file type is jpg/png/gif).</p>
+
+<hr>
+<h3 style="color: #1a1a2e;">VIEWS (The Plates &mdash; What Users See)</h3>
+
+<h3>views/layouts/header.php &amp; footer.php</h3>
+<p>The <strong>header</strong> contains the sidebar navigation menu (Dashboard, Agents, Zones, etc.) that appears on every page. The <strong>footer</strong> closes the HTML and loads the JavaScript file. These are shared across all pages so the sidebar is consistent everywhere.</p>
+
+<h3>views/delivery/login.php</h3>
+<p>The login form with email and password fields. Has a JavaScript check that prevents submitting empty fields.</p>
+
+<h3>views/delivery/dashboard.php</h3>
+<p>Displays four stat cards (pending, active, delivered today, total agents) and four quick action buttons.</p>
+
+<h3>views/delivery/agents.php</h3>
+<p>Shows a form to add/edit agents at the top, and a table of all agents below with edit/activate/deactivate buttons.</p>
+
+<h3>views/delivery/zones.php</h3>
+<p>Same layout as agents &mdash; a form at top and a table below with edit/delete buttons.</p>
+
+<h3>views/delivery/dispatch.php</h3>
+<p>Shows a table of orders waiting for dispatch. Each row has two dropdowns (select agent, select zone) and an &ldquo;Assign&rdquo; button.</p>
+
+<h3>views/delivery/active.php</h3>
+<p>Shows active deliveries with AJAX status dropdowns and a &ldquo;Mark Failed&rdquo; button. Also contains the failure/reassignment popup modal.</p>
+
+<h3>views/delivery/history.php</h3>
+<p>A read-only table of all past deliveries with timestamps and failure reasons.</p>
+
+<h3>views/delivery/summary.php</h3>
+<p>Two cards showing today's and this week's delivery numbers.</p>
+
+<h3>views/delivery/profile.php</h3>
+<p>Three sections: profile picture upload, edit name/phone, change password.</p>
+
+<hr>
+<h3 style="color: #1a1a2e;">AJAX / API</h3>
+
+<h3>api/update_delivery_status.php &mdash; The AJAX Endpoint</h3>
+<p>This is a special PHP file that doesn't show a webpage. Instead, it receives a request from JavaScript (in the background), updates the delivery status in the database, and sends back a short message in JSON format (like a text message) saying &ldquo;success&rdquo; or &ldquo;error&rdquo;. This allows the Active Deliveries page to update the status <strong>without refreshing the whole page</strong>.</p>
+
+<h3>assets/js/app.js &mdash; The JavaScript File</h3>
+<p>Contains the <code>updateDeliveryStatus()</code> function. When the delivery manager selects a new status from the dropdown on the Active Deliveries page:</p>
+<ol>
+    <li>A confirmation popup asks &ldquo;Are you sure?&rdquo;</li>
+    <li>JavaScript sends the request to the PHP API in the background (using XMLHttpRequest).</li>
+    <li>When the response comes back, it updates the status badge on screen without reloading.</li>
+    <li>If the delivery is marked as &ldquo;delivered&rdquo;, the row fades away from the table.</li>
+</ol>
+
+<h3>assets/css/style.css</h3>
+<p>Controls the entire visual appearance &mdash; colors, fonts, spacing, sidebar layout, table styles, buttons, cards, badges, the modal popup, responsive design, and animations.</p>
+
+<h3>sql/schema.sql</h3>
+<p>Contains the commands to create the database and all 14 tables. Run this first when setting up.</p>
+
+<h3>sql/seed.sql</h3>
+<p>Contains sample/demo data (test users, orders, agents, zones) so the project has something to show when first loaded.</p>
+
+<div class="page-break"></div>
+
+<!-- ====================================================================== -->
+<!-- ==================== 10. VIVA Q&A ==================================== -->
+<!-- ====================================================================== -->
+<h1>10. Viva / Defense Q&amp;A Preparation</h1>
+
+<div class="warn-box">
+    <strong>Study Strategy:</strong> Read each question and answer below. The answers are written in simple language. Focus on understanding the <em>concept</em> rather than memorizing exact words. If you can explain it in your own words, you'll sound more natural and confident.
+</div>
+
+<!-- ---------- GENERAL / OVERVIEW ---------- -->
+<h2>10.1 General / Overview Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q1: What is this project about?</p>
+    <p class="a"><strong>A:</strong> This is a multi-vendor e-commerce marketplace called Sporshow. It has four roles: Customer, Seller, Delivery Manager, and Admin. My part is the Delivery Manager module. I manage the logistics &mdash; I add delivery agents, define delivery zones across Bangladesh, assign orders to delivery boys, track deliveries in real time, and handle failed deliveries.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q2: What is your role in this project?</p>
+    <p class="a"><strong>A:</strong> I am responsible for the Delivery Manager role. The Delivery Manager is the person who runs the logistics network. I built the entire module that allows the manager to log in, view a dashboard, manage delivery agents, manage delivery zones, dispatch orders to agents, track active deliveries, update delivery statuses via AJAX, handle failed deliveries, view delivery history, and see daily/weekly summaries.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q3: What technologies did you use?</p>
+    <p class="a"><strong>A:</strong> I used <strong>PHP</strong> for all server-side logic, <strong>MySQL</strong> as the database, <strong>HTML</strong> and <strong>CSS</strong> for the front-end design, and <strong>JavaScript with XMLHttpRequest (AJAX)</strong> for the delivery status update feature that works without reloading the page. The project runs on a XAMPP Apache server.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q4: How many features did you implement?</p>
+    <p class="a"><strong>A:</strong> I implemented 11 features: Login/authentication, logistics dashboard, delivery agent management, delivery zone management, order dispatch, active delivery tracking, AJAX-based status update, failed delivery handling, delivery history, daily &amp; weekly summary, and profile management.</p>
+</div>
+
+<!-- ---------- MVC ---------- -->
+<h2>10.2 MVC Architecture Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q5: What is MVC and why did you use it?</p>
+    <p class="a"><strong>A:</strong> MVC stands for Model-View-Controller. It's a design pattern that separates the code into three parts: the <strong>Model</strong> handles all database operations, the <strong>View</strong> handles what the user sees on screen, and the <strong>Controller</strong> sits in the middle &mdash; it receives the user's request, asks the Model for data, and passes it to the View. I used MVC because it keeps the code organized. If I want to change how a page looks, I only change the View file. If I want to change a database query, I only change the Model. Business logic is never mixed into the HTML files.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q6: Can you show me an example of MVC in your code?</p>
+    <p class="a"><strong>A:</strong> Sure. Take the Agents page as an example:
+    <br>&bull; The <strong>Model</strong> is <code>models/DeliveryAgent.php</code> &mdash; it has functions like <code>getAll()</code>, <code>create()</code>, <code>update()</code> that directly talk to the MySQL database.
+    <br>&bull; The <strong>Controller</strong> is <code>controllers/AgentController.php</code> &mdash; it checks if a form was submitted, calls the Model to save or fetch data, and then loads the View.
+    <br>&bull; The <strong>View</strong> is <code>views/delivery/agents.php</code> &mdash; it's the HTML page that shows the form and the table of agents. It only displays data, it never talks to the database directly.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q7: Where is the business logic in your project?</p>
+    <p class="a"><strong>A:</strong> All business logic is in the <strong>Controllers</strong> and <strong>Models</strong>. Controllers handle the request logic &mdash; like checking form input, deciding what action to take. Models handle the database logic &mdash; like writing SQL queries. The View files only have HTML and display variables; they never contain business logic.</p>
+</div>
+
+<!-- ---------- DATABASE ---------- -->
+<h2>10.3 Database Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q8: What database did you use and what is the database name?</p>
+    <p class="a"><strong>A:</strong> I used <strong>MySQL</strong>. The database is named <code>ecommerce_store</code>. It is a shared database that all four roles use, with 14 tables in total.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q9: Which tables are important for your Delivery Manager role?</p>
+    <p class="a"><strong>A:</strong> The main tables I use are:
+    <br>&bull; <code>users</code> &mdash; stores the delivery manager's account (and all other users).
+    <br>&bull; <code>delivery_agents</code> &mdash; stores delivery agent/boy details (name, phone, vehicle type).
+    <br>&bull; <code>delivery_zones</code> &mdash; stores zone names with their delivery fees and estimated days.
+    <br>&bull; <code>delivery_assignments</code> &mdash; the core table that links orders to agents, tracking status and timestamps.
+    <br>&bull; <code>orders</code> &mdash; I read from this table to find orders that are ready for dispatch.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q10: What is a primary key?</p>
+    <p class="a"><strong>A:</strong> A primary key is a unique identifier for each row in a table. In my <code>delivery_agents</code> table, the <code>id</code> column is the primary key. Every agent has a unique ID like 1, 2, 3. No two agents can have the same ID. It auto-increments, meaning MySQL assigns the next number automatically when a new agent is added.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q11: What is a foreign key? Give an example.</p>
+    <p class="a"><strong>A:</strong> A foreign key is a column in one table that refers to the primary key of another table. It creates a relationship between tables. For example, in my <code>delivery_assignments</code> table, the <code>agent_id</code> column is a foreign key that refers to the <code>id</code> column in the <code>delivery_agents</code> table. This means every assignment must point to a valid agent that exists. Similarly, <code>order_id</code> refers to the <code>orders</code> table.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q12: What is an ENUM in your database?</p>
+    <p class="a"><strong>A:</strong> ENUM is a data type that restricts a column to a fixed set of allowed values. For example, the <code>status</code> column in <code>delivery_assignments</code> is an ENUM with values: <em>assigned, picked_up, in_transit, delivered, failed</em>. You cannot insert any other value. This ensures data consistency &mdash; a delivery can only be in one of these five states.</p>
+</div>
+
+<!-- ---------- SECURITY ---------- -->
+<h2>10.4 Security Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q13: What is SQL injection and how did you prevent it?</p>
+    <p class="a"><strong>A:</strong> SQL injection is an attack where a hacker types malicious SQL code into a form field to manipulate the database &mdash; for example, deleting all data. I prevented this by using <strong>prepared statements</strong> with <strong>parameter binding</strong>. Instead of putting user input directly into the SQL query, I use question marks (<code>?</code>) as placeholders and then bind the actual values separately. This way, the database treats user input as plain text, never as SQL code. For example: <code>$stmt = $conn->prepare("SELECT * FROM users WHERE email = ?"); $stmt->bind_param("s", $email);</code></p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q14: What is XSS and how did you prevent it?</p>
+    <p class="a"><strong>A:</strong> XSS stands for Cross-Site Scripting. It's an attack where someone injects JavaScript code through a form field, and that code runs in other users' browsers. I prevented this by using <code>htmlspecialchars()</code> whenever I display user-provided data in HTML. This function converts special characters like <code>&lt;</code> and <code>&gt;</code> into safe HTML entities so any injected script tags are displayed as harmless text instead of being executed.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q15: How does your login security work?</p>
+    <p class="a"><strong>A:</strong> Passwords are never stored as plain text. When a user registers, the password is hashed using PHP's <code>password_hash()</code> function with the bcrypt algorithm, which creates a one-way encrypted version. When logging in, I use <code>password_verify()</code> to compare the entered password with the stored hash. Even if someone steals the database, they cannot read the actual passwords.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q16: What is role-based access control?</p>
+    <p class="a"><strong>A:</strong> It means different users have different permissions based on their role. In my project, the <code>users</code> table has a <code>role</code> column (customer, seller, delivery_manager, admin). Every page in the Delivery Manager portal calls <code>requireRole('delivery_manager')</code> at the very top. If a customer or seller somehow tries to access the delivery manager's pages, they get a "403 Access Denied" error. This ensures each role can only see their own pages.</p>
+</div>
+
+<!-- ---------- SESSION ---------- -->
+<h2>10.5 Session Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q17: What is a PHP session and how did you use it?</p>
+    <p class="a"><strong>A:</strong> A PHP session is a way to remember who is logged in as they navigate between pages. When a user logs in successfully, I store their user ID, name, and role in the session using <code>$_SESSION['user_id']</code>, <code>$_SESSION['user_name']</code>, and <code>$_SESSION['user_role']</code>. On every page, the system checks these session values to know who you are and whether you have permission to view that page. When you click logout, I call <code>session_destroy()</code> which clears all session data.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q18: What is the difference between a session and a cookie?</p>
+    <p class="a"><strong>A:</strong> A <strong>session</strong> stores data on the server. It's more secure because the user can't modify it. A <strong>cookie</strong> stores data on the user's browser. Cookies can be viewed and modified by the user, so they're less secure for sensitive data. PHP sessions use a cookie behind the scenes &mdash; but only to store a session ID (a random string). The actual data (like user role) stays safely on the server.</p>
+</div>
+
+<!-- ---------- AJAX ---------- -->
+<h2>10.6 AJAX Questions (Very Important &mdash; Faculty Often Asks This)</h2>
+
+<div class="qa-box">
+    <p class="q">Q19: What is AJAX? Why did you use it?</p>
+    <p class="a"><strong>A:</strong> AJAX stands for Asynchronous JavaScript and XML. It allows a webpage to send data to and receive data from the server <strong>without reloading the entire page</strong>. I used it on the Active Deliveries page &mdash; when I change a delivery status from the dropdown, the status updates instantly on screen without the page refreshing. This provides a smoother, faster user experience compared to reloading the whole page for every small change.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q20: Which feature uses AJAX in your project?</p>
+    <p class="a"><strong>A:</strong> The <strong>delivery status update</strong> on the Active Deliveries page. When I select a new status like "Picked Up" or "In Transit" from the dropdown, JavaScript sends a request in the background to the PHP endpoint <code>api/update_delivery_status.php</code>. The PHP updates the database and sends back a JSON response. JavaScript then updates the status badge on the page without any page reload.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q21: What is XMLHttpRequest?</p>
+    <p class="a"><strong>A:</strong> XMLHttpRequest is a built-in JavaScript object that allows the browser to send HTTP requests to the server in the background. In my code, I create a new XMLHttpRequest, set it to POST to my API endpoint, send the assignment ID and new status, and then handle the response when it comes back. It's the original way to do AJAX in JavaScript.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q22: What is JSON?</p>
+    <p class="a"><strong>A:</strong> JSON stands for JavaScript Object Notation. It's a lightweight format for exchanging data between the server and the browser. My PHP API sends responses like <code>{"success": true, "message": "Status updated to Delivered"}</code>. JavaScript receives this text, parses it with <code>JSON.parse()</code>, and reads the values to decide what to update on the page. I chose JSON because it's simple, lightweight, and easy for JavaScript to process.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q23: Can you explain the flow of your AJAX request step by step?</p>
+    <p class="a"><strong>A:</strong>
+    <br>1. The user selects a new status (e.g., "In Transit") from the dropdown on the Active Deliveries page.
+    <br>2. A JavaScript confirmation popup asks "Are you sure?"
+    <br>3. If confirmed, JavaScript creates an XMLHttpRequest and sends a POST request to <code>api/update_delivery_status.php</code> with two pieces of data: the assignment ID and the new status.
+    <br>4. The PHP file receives this request. It first checks if the user is logged in and is a delivery manager. Then it validates the status value. Then it updates the <code>delivery_assignments</code> table in the database using a prepared statement.
+    <br>5. If the new status is "delivered", it also updates the order status and records the delivery time.
+    <br>6. PHP sends back a JSON response like <code>{"success": true, "status_label": "In Transit"}</code>.
+    <br>7. JavaScript receives this response, reads the JSON, and updates the status badge text on the page. If delivered, the row fades away. The dropdown options are also updated to show only valid next statuses.
+    <br>All of this happens <strong>without the page reloading</strong>.</p>
+</div>
+
+<!-- ---------- VALIDATION ---------- -->
+<h2>10.7 Validation Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q24: What is client-side validation?</p>
+    <p class="a"><strong>A:</strong> Client-side validation happens in the browser using <strong>JavaScript</strong> before the form is sent to the server. For example, on my login form, JavaScript checks if the email and password fields are empty. If they are, it shows an alert and prevents the form from submitting. This gives the user instant feedback without waiting for the server.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q25: What is server-side validation and why is it needed if you already have client-side?</p>
+    <p class="a"><strong>A:</strong> Server-side validation happens in <strong>PHP</strong> on the server. It's essential because client-side validation can be easily bypassed &mdash; a user can disable JavaScript in their browser or use tools to send requests directly. So even though I validate on the client side for a good user experience, I <strong>always validate again on the server</strong> to ensure security. For example, my AgentController checks if the name, phone, and vehicle type are empty even though JavaScript already checks this.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q26: Where do you perform validation in your project?</p>
+    <p class="a"><strong>A:</strong> I perform validation in two places:
+    <br>&bull; <strong>Client-side (JavaScript):</strong> Every form has a JavaScript listener that checks for empty fields, matching passwords, and valid numbers before submission.
+    <br>&bull; <strong>Server-side (PHP Controllers):</strong> Every controller checks the submitted data again &mdash; empty checks, type casting, file type validation, password length, etc. Error messages are shown to the user.</p>
+</div>
+
+<!-- ---------- ROUTING / FLOW ---------- -->
+<h2>10.8 Routing &amp; Page Flow Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q27: How does the routing/navigation work in your project?</p>
+    <p class="a"><strong>A:</strong> I use a front controller pattern. The single <code>index.php</code> file acts as the entry point for all requests. The URL contains a <code>page</code> parameter, like <code>index.php?page=agents</code>. The <code>index.php</code> file reads this parameter and uses a <code>switch</code> statement to decide which controller to load. Each controller then loads the appropriate view. This keeps the routing centralized in one file.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q28: What happens when someone visits your website for the first time?</p>
+    <p class="a"><strong>A:</strong> They arrive at <code>main.html</code> which automatically redirects to <code>index.php</code>. Since they're not logged in, <code>index.php</code> shows the login page. After they enter valid credentials, the AuthController creates a session and redirects them to the dashboard. From there, they can navigate using the sidebar.</p>
+</div>
+
+<!-- ---------- SPECIFIC CODE ---------- -->
+<h2>10.9 Specific Code Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q29: What is <code>password_hash()</code> and <code>password_verify()</code>?</p>
+    <p class="a"><strong>A:</strong> <code>password_hash()</code> is a PHP function that takes a plain text password and converts it into a long encrypted string called a hash using the bcrypt algorithm. This hash is stored in the database. <code>password_verify()</code> takes a plain text password and a hash, and checks if they match. The key point is that hashing is one-way &mdash; you can't reverse a hash back to the original password. This protects user passwords.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q30: What is <code>htmlspecialchars()</code> and why do you use it?</p>
+    <p class="a"><strong>A:</strong> <code>htmlspecialchars()</code> is a PHP function that converts special HTML characters into safe entities. For example, <code>&lt;</code> becomes <code>&amp;lt;</code> and <code>&gt;</code> becomes <code>&amp;gt;</code>. I use it whenever I display user-provided data in HTML to prevent XSS attacks. If someone entered <code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code> as their name, it would be displayed as harmless text instead of being executed as JavaScript.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q31: What is a prepared statement? Show an example.</p>
+    <p class="a"><strong>A:</strong> A prepared statement is a way to run database queries safely. Instead of putting user input directly into the SQL query (which is dangerous), you write the query with <code>?</code> placeholders and then bind the actual values separately. For example:
+    <br><code>$stmt = $conn-&gt;prepare("SELECT * FROM users WHERE email = ?");</code>
+    <br><code>$stmt-&gt;bind_param("s", $email);</code>
+    <br><code>$stmt-&gt;execute();</code>
+    <br>The <code>"s"</code> means the parameter is a string. <code>"i"</code> would be integer, <code>"d"</code> would be decimal. The database knows the <code>?</code> is always data, never code, so SQL injection is impossible.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q32: What is the <code>$_SESSION</code> variable?</p>
+    <p class="a"><strong>A:</strong> <code>$_SESSION</code> is a special PHP array that stores data on the server for the current user. After login, I store values like <code>$_SESSION['user_id'] = 1</code> and <code>$_SESSION['user_role'] = 'delivery_manager'</code>. These values persist across different page loads until the session is destroyed (logout). Each user gets their own separate session identified by a unique session ID.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q33: What does <code>$_POST</code> and <code>$_GET</code> mean?</p>
+    <p class="a"><strong>A:</strong> <code>$_POST</code> contains data sent from HTML forms using the POST method &mdash; like login credentials or form submissions. The data is hidden in the request body. <code>$_GET</code> contains data sent in the URL &mdash; like <code>?page=agents&amp;edit=1</code>. GET data is visible in the URL. I use POST for form submissions (sensitive data, creating/updating records) and GET for navigation and page parameters.</p>
+</div>
+
+<!-- ---------- TRICKY / DEEPER QUESTIONS ---------- -->
+<h2>10.10 Tricky / Deeper Questions</h2>
+
+<div class="qa-box">
+    <p class="q">Q34: What if two delivery managers try to assign the same order at the same time?</p>
+    <p class="a"><strong>A:</strong> In the current implementation, the dispatch page only shows orders that have not been assigned yet. The SQL query filters out orders that already have an active assignment. So if one manager assigns it first, the order disappears from the other manager's list on the next page load. For the AJAX feature, the database INSERT would succeed for the first request, and the second would create a duplicate assignment. In a production system, I would add a UNIQUE constraint or use a database transaction to prevent this.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q35: Why did you use PHP sessions instead of JWT or tokens?</p>
+    <p class="a"><strong>A:</strong> PHP sessions are the standard authentication method for traditional PHP web applications. They are simple, secure (data is stored on the server), and well-suited for this project which is a server-rendered application. JWT tokens are more suitable for API-based or single-page applications where the frontend and backend are separate. Since our project requirements specified PHP sessions, that's what I used.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q36: How does your project handle file uploads securely?</p>
+    <p class="a"><strong>A:</strong> In the Profile page, when uploading a profile picture: (1) I check if the file was uploaded without errors using <code>$_FILES['profile_pic']['error']</code>. (2) I extract the file extension and check it against an allowed list (jpg, jpeg, png, gif only). (3) I rename the file to a unique name with a timestamp to prevent overwriting. (4) I use <code>move_uploaded_file()</code> to save it to the <code>uploads/profiles/</code> directory. I never trust the original filename from the user.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q37: What is the difference between <code>require_once</code> and <code>include</code>?</p>
+    <p class="a"><strong>A:</strong> Both include another PHP file. The difference is: <code>require_once</code> will cause a <strong>fatal error</strong> and stop the script if the file is not found, and it ensures the file is loaded only once even if called multiple times. <code>include</code> only gives a warning and continues running if the file is missing. I use <code>require_once</code> for critical files like models and config because the system cannot work without them.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q38: What is CRUD?</p>
+    <p class="a"><strong>A:</strong> CRUD stands for Create, Read, Update, Delete &mdash; the four basic database operations. In my agent management feature: <strong>Create</strong> = adding a new agent, <strong>Read</strong> = viewing the list of agents, <strong>Update</strong> = editing an agent's details, <strong>Delete</strong> = deactivating an agent (I deactivate instead of deleting to preserve history).</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q39: Why do you use <code>htmlspecialchars()</code> on data that you got from your own database?</p>
+    <p class="a"><strong>A:</strong> Because the data in the database originally came from user input. Even though it went through the database, it could still contain malicious HTML or JavaScript. The rule is: always escape output, regardless of where it came from. This is called &ldquo;defense in depth&rdquo; &mdash; multiple layers of security.</p>
+</div>
+
+<div class="qa-box">
+    <p class="q">Q40: How would you improve this project if you had more time?</p>
+    <p class="a"><strong>A:</strong> I would add: (1) Agent performance reports showing deliveries per agent, average delivery time, and failure rate. (2) Zone performance reports showing volume and speed per zone. (3) Real-time notifications when new orders arrive using WebSockets. (4) A mobile-responsive design for delivery agents to update their own status from their phones. (5) Email or SMS notifications to customers when delivery status changes.</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- FINAL TIPS -->
+<h1>Final Tips for the Defense</h1>
+
+<div class="tip-box">
+    <strong>1. Know your pages:</strong> Be ready to open each page and explain what it does. Dashboard &rarr; Agents &rarr; Zones &rarr; Dispatch &rarr; Active Deliveries &rarr; History &rarr; Summary &rarr; Profile.
+</div>
+
+<div class="tip-box">
+    <strong>2. Demo the AJAX feature:</strong> The AJAX status update is impressive. Show it live by changing a delivery status on the Active Deliveries page and pointing out that the page does not reload.
+</div>
+
+<div class="tip-box">
+    <strong>3. Know the file structure:</strong> If asked &ldquo;where is the code for X?&rdquo;, know that Models are in <code>models/</code>, Controllers are in <code>controllers/</code>, and Views are in <code>views/delivery/</code>.
+</div>
+
+<div class="tip-box">
+    <strong>4. Key terms to remember:</strong> MVC, Prepared Statements, bcrypt, AJAX, XMLHttpRequest, JSON, Session, Role-Based Access Control, CRUD, htmlspecialchars, Foreign Key, Primary Key.
+</div>
+
+<div class="tip-box">
+    <strong>5. If you don't know an answer:</strong> Say &ldquo;In my current implementation, I focused on the core functionality, but that's a great suggestion for a future enhancement.&rdquo; Never say &ldquo;I don't know.&rdquo;
+</div>
+
+<br><br>
+<p style="text-align: center; color: #999; font-size: 10pt;">&mdash; End of Report &mdash;</p>
+
+</body>
+</html>
