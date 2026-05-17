@@ -51,17 +51,6 @@ switch ($page) {
         $controller->active();
         break;
 
-    case 'history':
-        require_once __DIR__ . '/controllers/DeliveryController.php';
-        $controller = new DeliveryController();
-        $controller->history();
-        break;
-
-    case 'summary':
-        require_once __DIR__ . '/controllers/DeliveryController.php';
-        $controller = new DeliveryController();
-        $controller->summary();
-        break;
 
     case 'profile':
         require_once __DIR__ . '/controllers/ProfileController.php';

@@ -19,8 +19,6 @@
         <li><a href="index.php?page=zones" class="<?= ($page ?? '') === 'zones' ? 'active' : '' ?>">Delivery Zones</a></li>
         <li><a href="index.php?page=dispatch" class="<?= ($page ?? '') === 'dispatch' ? 'active' : '' ?>">Dispatch Orders</a></li>
         <li><a href="index.php?page=active" class="<?= ($page ?? '') === 'active' ? 'active' : '' ?>">Active Deliveries</a></li>
-        <li><a href="index.php?page=history" class="<?= ($page ?? '') === 'history' ? 'active' : '' ?>">Delivery History</a></li>
-        <li><a href="index.php?page=summary" class="<?= ($page ?? '') === 'summary' ? 'active' : '' ?>">Summary</a></li>
         <li><a href="index.php?page=profile" class="<?= ($page ?? '') === 'profile' ? 'active' : '' ?>">My Profile</a></li>
         <li><a href="index.php?page=logout">Logout</a></li>
     </ul>
